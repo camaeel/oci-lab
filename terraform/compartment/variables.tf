@@ -9,3 +9,8 @@ variable "name" {
 variable "tags" {
   type = map(string)
 }
+
+variable "enable_delete" {
+  type = bool
+  default = false
+}

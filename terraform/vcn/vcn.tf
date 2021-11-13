@@ -3,5 +3,6 @@ resource "oci_core_vcn" "this" {
 
   cidr_blocks = var.vcn_cidrs
 
+  dns_label = "ocilab"
   freeform_tags = var.tags
 }

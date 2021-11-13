@@ -6,4 +6,5 @@ module "vcn" {
   vcn_cidrs = var.vcn_cidrs
   
   tags = var.standard_tags
+
 }
