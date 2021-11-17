@@ -2,7 +2,11 @@
 
 Project will provide easy way to setup "home lab" using free resources from Oracle Cloud.
 
-Currently, projects set new compartment with VCN network with 3 subnets. Puts one big Ampere powered node.
+## Result of experiment
+
+This cloud solution is completely unstable and very hard to use. I would advise to buy a bunch of raspberry PIs rather than use this solution. 
+
+Support is non-existent.   
 
 ## Setup 
 
@@ -17,3 +21,4 @@ Currently, projects set new compartment with VCN network with 3 subnets. Puts on
 1. Source env: `. ../env`
 1. `tf plan`
 1. `tf apply`
+
