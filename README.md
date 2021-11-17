@@ -2,6 +2,7 @@
 
 Project will provide easy way to setup "home lab" using free resources from Oracle Cloud.
 
+Currently, projects set new compartment with VCN network with 3 subnets. Puts one big Ampere powered node.
 
 ## Setup 
 
