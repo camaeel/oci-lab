@@ -22,3 +22,10 @@ Support is non-existent.
 1. `tf plan`
 1. `tf apply`
 
+# Register gitlab runner:
+
+```
+gitlab-runner register --url https://gitlab.com/ --registration-token $REGISTRATION_TOKEN \
+--docker-volumes /var/run/docker.sock:/var/run/docker.sock \
+--tag-list oci,arm64 --name oci-arm64 --executor docker --non-interactive\
+```
