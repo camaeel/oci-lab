@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 1.0.0"
+  required_version = ">= 1.3.0"
 
   backend "s3" {
     key    = "oci-lab/oci-lab.tfstate"
@@ -10,7 +10,7 @@ terraform {
   required_providers {
     oci = {
       source = "hashicorp/oci"
-      version = ">= 4.52.0"
+      version = ">= 4.95.0"
     }
   }
 }

@@ -50,3 +50,20 @@ variable "image_os_version" {
 variable "image_operating_system" {
   type = string
 }
+
+variable "boot_volume_size_in_gbs" {
+  type = number
+  default = 50
+}
+
+variable "ssh_key_file" {
+  description = "Path to ssh public key"
+  type = string
+  default = "~/.ssh/id_rsa.pub"
+}
+
+variable "user_data" {
+  default = ""
+  type = string
+  description = "User data"
+}

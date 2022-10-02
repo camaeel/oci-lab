@@ -22,4 +22,7 @@ resource "oci_core_instance_pool" "this" {
 #    port = var.instance_pool_load_balancers_port
 #    vnic_selection = var.instance_pool_load_balancers_vnic_selection
 #  }
+  depends_on = [
+    oci_core_instance_configuration.this
+  ]
 }

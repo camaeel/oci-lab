@@ -29,11 +29,17 @@ module "dmz_compute_pool" {
 
   image_name = null
   image_operating_system = "Canonical Ubuntu"
-  image_os_version = "20.04"
+  image_os_version = "22.04"
   # ampere defaults
   ocpus = 4
   memory = 24
   shape = "VM.Standard.A1.Flex"
-
+  boot_volume_size_in_gbs = 100
+  ssh_key_file = var.ssh_key_file
   tags = var.standard_tags
+  user_data = base64encode(templatefile("files/user_data_runner.tftpl", 
+    {
+      GITLAB_REGISTRATION_TOKEN = var.gitlab_registration_token
+    }
+  ))
 }

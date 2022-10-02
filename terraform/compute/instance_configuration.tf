@@ -56,14 +56,24 @@ resource "oci_core_instance_configuration" "this" {
         are_all_plugins_disabled = false
         is_management_disabled = false
         is_monitoring_disabled = false
-#        plugins_config {
-#          #Required
-#          desired_state = var.instance_configuration_instance_details_launch_details_agent_config_plugins_config_desired_state
-#          name = var.instance_configuration_instance_details_launch_details_agent_config_plugins_config_name
-#        }
+        plugins_config {
+          desired_state = "ENABLED"
+          name = "Bastion"
+        }
+        plugins_config {
+          desired_state = "ENABLED"
+          name = "Vulnerability Scanning"
+        }
+        plugins_config {
+          desired_state = "ENABLED"
+          name = "Compute Instance Run Command"
+        }
+        plugins_config {
+          desired_state = "ENABLED"
+          name = "OS Management Service Agent"
+        }
       }
       availability_config {
-
         #Optional
         recovery_action = "RESTORE_INSTANCE"
       }
@@ -102,8 +112,8 @@ resource "oci_core_instance_configuration" "this" {
 #        remote_data_volume_type = "PARAVIRTUALIZED"
 #      }
       metadata = {
-        ssh_authorized_keys =  file("~/.ssh/id_rsa.pub"),
-#        user_data = "TODO"
+        ssh_authorized_keys =  file(var.ssh_key_file),
+        user_data = var.user_data
       }
 #      platform_config {
 #        #Required
@@ -140,10 +150,13 @@ resource "oci_core_instance_configuration" "this" {
 
         #Optional
 #        boot_volume_id = oci_core_boot_volume.test_boot_volume.id
-#        boot_volume_size_in_gbs = var.instance_configuration_instance_details_launch_details_source_details_boot_volume_size_in_gbs
+        boot_volume_size_in_gbs = var.boot_volume_size_in_gbs
         image_id = data.oci_core_images.this.images[0].id
       }
     }
 
+  }
+  lifecycle {
+    create_before_destroy = true
   }
 }
