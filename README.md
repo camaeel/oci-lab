@@ -5,8 +5,9 @@ Project will provide easy way to setup "home lab" using free resources from Orac
 ## Result of experiment
 
 This cloud solution is completely unstable and very hard to use. I would advise to buy a bunch of raspberry PIs rather than use this solution. 
+Support is non-existent and documentation needs some improvements.   
 
-Support is non-existent.   
+At the end I decided to use free resources to provision gitlab runner to build arm based images.
 
 ## Setup 
 
@@ -22,10 +23,10 @@ Support is non-existent.
 1. `tf plan`
 1. `tf apply`
 
-# Register gitlab runner:
-
-```
-gitlab-runner register --url https://gitlab.com/ --registration-token $REGISTRATION_TOKEN \
---docker-volumes /var/run/docker.sock:/var/run/docker.sock \
---tag-list oci,arm64 --name oci-arm64 --executor docker --non-interactive\
-```
+## Connect to ssh
+1. Configure on local machine:
+    ```
+    Host *
+      HostkeyAlgorithms +ssh-rsa
+      PubkeyAcceptedAlgorithms +ssh-rsa
+    ```
