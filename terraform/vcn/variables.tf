@@ -3,7 +3,7 @@ variable "compartment_id" {
 }
 
 variable "vcn_cidrs" {
-  type = list(string)
+  type = set(string)
 }
 
 variable "tags" {
