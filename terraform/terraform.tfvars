@@ -3,4 +3,4 @@ standard_tags = {
   sources = "https://github.com/oci-homelab/oci-lab"
 }
 
-vcn_cidrs = ["172.16.0.0/16"]
+vcn_cidrs = ["192.168.182.0/23"]

@@ -23,11 +23,12 @@ resource "oci_core_route_table" "private" {
   vcn_id = oci_core_vcn.this.id
 
   #Optional
-  display_name = "public subnet"
+  display_name = "private subnet"
   freeform_tags = var.tags
   route_rules {
     #Required
-    network_entity_id = oci_core_nat_gateway.nat_gw.id
+    # network_entity_id = oci_core_nat_gateway.nat_gw.id
+    network_entity_id = oci_core_internet_gateway.inet_gw.id
 
     #Optional
     description = "Default outbound"

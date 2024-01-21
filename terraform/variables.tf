@@ -17,8 +17,3 @@ variable "ssh_key_file" {
   type = string
   default = "~/.ssh/id_rsa.pub"
 }
-
-variable "gitlab_registration_token" {
-  type = string
-  description = "Token for registering gitlab.com runners"
-}
